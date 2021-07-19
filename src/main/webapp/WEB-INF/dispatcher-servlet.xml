@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd ">
+<context:annotation-config/>
+<!-- 어노테이션을 통한 서블릿 -->
+<mvc:annotation-driven/>
+<!-- <context:component-scan base-package="controller.board.dao"/>  -->
+<context:component-scan base-package="controller"/>	
+<!-- 빈 객체 생성을 통한 서블릿  -->	
+<bean id="/index" class="controller.IndexController"></bean>
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!--경로 단축을 위한 프로퍼티  -->				
+	<property name="order" value="2" />
+	<property name="prefix" value="/WEB-INF/" />
+	<property name="suffix" value=".jsp" />
+</bean>
+<!--다른 확장자 파일을 허용  -->
+<mvc:resources location="/static/" mapping="/**"/> 
+<!-- <mvc:resources location="/static" mapping="/**"></mvc:resources> -->
+</beans>
