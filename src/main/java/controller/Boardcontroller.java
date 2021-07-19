@@ -80,7 +80,6 @@ public class Boardcontroller {
 		return mv;
 	}
 	*/
-	
 	@RequestMapping("reply")
 	public ModelAndView reply() {
 		ModelAndView mv=new ModelAndView();
